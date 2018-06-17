@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 class Album extends Component {
-  constructor(props) {
+  constructor(prop) {
     super(props) (
 
     );
+
   }
 }
 
