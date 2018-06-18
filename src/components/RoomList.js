@@ -19,12 +19,13 @@ class RoomList extends Component {
 
 render() {
   return (
-    <div className="sidebar">
-      <ul className="roomInfo">
-      {this.state.rooms.map( (room, index) =>
-          <li key={index}>{room.key}</li>)}
+    <section className="room-list">
+       <section className="rooms">
+       {this.state.rooms.map( (room, index) =>
+        <li key={index}>{room.key}</li>)}
       </ul>
-    </div>
+       </section>
+       </section>
   );
 }
 }
