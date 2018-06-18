@@ -23,7 +23,6 @@ render() {
        <section className="rooms">
        {this.state.rooms.map( (room, index) =>
         <li key={index}>{room.key}</li>)}
-      </ul>
        </section>
        </section>
   );
