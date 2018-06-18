@@ -17,4 +17,19 @@ class RoomList extends Component {
   });
 }
 
+render() {
+  return (
+    <div className="sidebar">
+      <ul className="roomInfo">
+      {this.state.rooms.map( (room, index) =>
+          <li key={index}>{room.key}</li>)}
+      </ul>
+      return(
+        <ul>{RoomList}</ul>
+      );
+    </div>
+  );
 }
+}
+
+export default RoomList;
