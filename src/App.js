@@ -23,12 +23,12 @@ class App extends Component {
         <nav>
         <div className="topbar">
           <span to='/RoomList'>Chat Rooms</span>
+          <main>
+            <RoomList firebase={firebase}/>
+          </main>
         </div>
         </nav>
         </header>
-        <main>
-          <RoomList firebase={firebase}/>
-        </main>
       </div>
     );
   }

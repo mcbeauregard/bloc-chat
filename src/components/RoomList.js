@@ -6,7 +6,7 @@ class RoomList extends Component {
     this.state = {
       rooms: []
     }
-    this.roomsRef = this.props.firebase.database().ref('rooms');
+    this.roomsRef = this.props.firebase.database().ref('Rooms');
   }
 
   componentDidMount() {
@@ -19,11 +19,9 @@ class RoomList extends Component {
 
 render() {
   return (
-    <section className="room-list">
        <section className="rooms">
        {this.state.rooms.map( (room, index) =>
         <li key={index}>{room.name}</li>)}
-       </section>
        </section>
   );
 }
