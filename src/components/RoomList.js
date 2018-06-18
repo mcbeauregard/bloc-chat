@@ -22,7 +22,7 @@ render() {
     <section className="room-list">
        <section className="rooms">
        {this.state.rooms.map( (room, index) =>
-        <li key={index}>{room.key}</li>)}
+        <li key={index}>{room.name}</li>)}
        </section>
        </section>
   );
