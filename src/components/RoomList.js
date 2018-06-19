@@ -17,15 +17,15 @@ class RoomList extends Component {
   });
 }
 
-handleButton(newRoom){ // new method to handle when a new room item is added when user clicks buttong. Accepts event data.
+handleChangeRoomName = (e) => { // new method to handle room name change when user inputs the field. Accepts event data.
+  this.setState({ newRoom: e.target.value }); // Updates room list with new room name.
+}
+
+handleSubmit = (newRoom) => { // new method to handle when a new room item is added when user clicks buttong. Accepts event data.
     this.roomsRef.push({ // method used in firebase to add an item to a location.
     name: newRoom
   });
   this.setState({ newRoom: "" }); // Updates room list with new room item
-}
-
-handleRoomName(e) { // new method to handle room name change when user inputs the field. Accepts event data.
-  this.setState({ newRoom: e.target.value }); // Updates room list with new room name.
 }
 
 render() {
@@ -33,8 +33,8 @@ render() {
         <section className="rooms">
          {this.state.rooms.map( (room, index) =>
           <li key={index}>{room.name}</li>)}
-          <form id="createRoomForm" onSubmit={ (e) => { e.preventDefault(); this.handleButton(this.state.newRoom) } }>
-            <input type="text" value={ this.state.newRoom } onChange={ this.handleRoomName.bind(this) } placeholder="Create a new room" />
+          <form id="createRoomForm" onSubmit={ (e) => { e.preventDefault(); this.handleSubmit(this.state.newRoom) } }>
+            <input type="text" value={ this.state.newRoom } onChange={ this.handleChangeRoomName} placeholder="Create a new room" />
             <button>Submit</button>
           </form>
        </section>
