@@ -21,11 +21,11 @@ handleChangeRoomName = (e) => { // new method to handle room name change when us
   this.setState({ newRoom: e.target.value }); // Updates room list with new room name.
 }
 
-handleSubmit = (newRoom) => { // new method to handle when a new room item is added when user clicks buttong. Accepts event data.
+handleSubmit = (newRoom) => { // new method to handle when a new room item is added when user clicks button. Accepts event data.
     this.roomsRef.push({ // method used in firebase to add an item to a location.
     name: newRoom
   });
-  this.setState({ newRoom: "" }); // Updates room list with new room item
+  this.setState({ newRoom: "" }); // Updates room list with new room item, if empty leaves field blank.
 }
 
 render() {
