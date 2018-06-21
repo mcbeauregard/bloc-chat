@@ -12,15 +12,19 @@ class MessageList extends Component {
   componentDidMount() {
   this.roomsRef.on('child_added', snapshot => {
     const room = snapshot.val();
-    room.key = snapshot.key;
-    this.setState({ rooms: this.state.rooms.concat( room ) })
+    message.key = snapshot.key;
+    this.setState({ rooms: this.state.messages.concat( message ) })
   });
 }
 
   render() {
     return (
           <section className="message-item">
-            <li key={index}>{room.name}</li>)}
+          {this.state.messages.map(message,index) =>
+            <li key={index}>
+              <span className="userinfo">{message.username}:{message.sentAt}</span>
+              <span className="content">{message.content}</span>
+            </li>)}
           </section>
     );
   }
