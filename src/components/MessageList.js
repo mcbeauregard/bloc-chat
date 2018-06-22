@@ -10,22 +10,34 @@ class MessageList extends Component {
   }
 
   componentDidMount() {
-  this.roomsRef.on('child_added', snapshot => {
-    const room = snapshot.val();
+    console.log("message component mounted");
+  this.messagesRef.on('child_added', snapshot => {
+    const message = snapshot.val();
     message.key = snapshot.key;
-    this.setState({ rooms: this.state.messages.concat( message ) })
+    this.setState({ messages: this.state.messages.concat(message) })
   });
 }
 
   render() {
     return (
-          <section className="message-item">
-          {this.state.messages.map(message,index) =>
+      <section id="message-container">
+        <h1>Messages</h1>
+          <ul className="message-item">
+          {this.state.messages.map((message, index) => {
+            if (this.props.activeRoom && (message.roomId.key === this.props.activeRoom.key)) {
+          return
             <li key={index}>
-              <span className="userinfo">{message.username}:{message.sentAt}</span>
+              <span className="userinfo">{message.username}</span>
               <span className="content">{message.content}</span>
-            </li>)}
-          </section>
+              <span className="content">{message.sentAt}</span>
+            </li>
+         }
+       })
+      }
+          </ul>
+      </section>
     );
   }
-  }
+}
+
+export default MessageList;

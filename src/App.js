@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import './App.css';
 import RoomList from './components/RoomList';
+import MessageList from './components/MessageList';
 
   // Initialize Firebase
   var config = {
@@ -15,6 +16,15 @@ import RoomList from './components/RoomList';
   firebase.initializeApp(config);
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = { activeRoom: null};
+  }
+
+isActiveRoom = (room) => { // new method to handle which room is active when user clicks on room. Accepts room data.
+    this.setState({ activeRoom: room}); // Updates room with active room name.
+  }
+
   render() {
     return (
       <div className="App">
@@ -24,7 +34,10 @@ class App extends Component {
         <div className="topbar">
           <span to='/RoomList'>Chat Rooms</span>
           <main>
-            <RoomList firebase={firebase}/>
+            <RoomList firebase={firebase} activeRoom={this.state.activeRoom} isActiveRoom={ (room) => this.isActiveRoom(room)}/>
+          </main>
+          <main>
+            <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
           </main>
         </div>
         </nav>
@@ -33,7 +46,6 @@ class App extends Component {
     );
   }
 }
-
 
 
 export default App;

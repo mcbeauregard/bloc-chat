@@ -9,7 +9,7 @@ class RoomList extends Component {
     this.roomsRef = this.props.firebase.database().ref('Rooms');
   }
 
-  componentDidMount() {
+componentDidMount() {
   this.roomsRef.on('child_added', snapshot => {
     const room = snapshot.val();
     room.key = snapshot.key;
@@ -30,15 +30,16 @@ handleSubmit = (newRoom) => { // new method to handle when a new room item is ad
 
 render() {
   return (
-        <section className="rooms">
+      <section className="rooms">
          {this.state.rooms.map( (room, index) =>
-          <li key={index}>{room.name}</li>)}
+          <li>
+            <button className="roomName" onClick={ () => this.props.isActiveRoom(room)}>{room.name}</button>
+          </li>)}
           <form id="createRoomForm" onSubmit={ (e) => { e.preventDefault(); this.handleSubmit(this.state.newRoom) } }>
             <input type="text" value={ this.state.newRoom } onChange={ this.handleChangeRoomName} placeholder="Create a new room" />
             <button>Submit</button>
           </form>
        </section>
-
   );
 }
 }
