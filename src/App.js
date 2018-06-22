@@ -18,7 +18,7 @@ import MessageList from './components/MessageList';
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = { activeRoom: null};
+    this.state = { activeRoom: null };
   }
 
 isActiveRoom = (room) => { // new method to handle which room is active when user clicks on room. Accepts room data.
@@ -34,7 +34,7 @@ isActiveRoom = (room) => { // new method to handle which room is active when use
         <div className="topbar">
           <span to='/RoomList'>Chat Rooms</span>
           <main>
-            <RoomList firebase={firebase} activeRoom={this.state.activeRoom} isActiveRoom={ (room) => this.isActiveRoom(room)}/>
+            <RoomList firebase={firebase} activeRoom={this.state.activeRoom} isActiveRoom={this.isActiveRoom}/>
           </main>
           <main>
             <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>

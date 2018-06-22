@@ -31,7 +31,7 @@ handleSubmit = (newRoom) => { // new method to handle when a new room item is ad
 render() {
   return (
       <section className="rooms">
-         {this.state.rooms.map( (room, index) =>
+         {this.state.rooms.map( (room,index) =>
           <li>
             <button className="roomName" onClick={ () => this.props.isActiveRoom(room)}>{room.name}</button>
           </li>)}
