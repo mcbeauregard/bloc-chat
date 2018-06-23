@@ -22,7 +22,6 @@ class MessageList extends Component {
   render() {
     return (
       <section id="message-container">
-        <h1>Messages</h1>
           <ul className="message-item">
           {this.state.messages.map(message =>
             <li key={message.key}>
@@ -31,9 +30,6 @@ class MessageList extends Component {
               <span className="content">{message.sentAt}</span>
             </li>
          )}
-       }
-       })
-      }
           </ul>
       </section>
     );

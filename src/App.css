@@ -2,13 +2,16 @@
   text-align: center;
 }
 
+/* left container */
 .App-header {
   background-color: grey;
-  width: 300px;
+  width: 250px;
   height: 850px;
-  padding: 20px;
   color: black;
+  padding: 20px;
   text-align: left;
+  display: inline-block;
+  float: left;
 }
 
 .App-title {
@@ -19,4 +22,21 @@
 
 .App-intro {
   font-size: large;
+}
+
+/* right container */
+
+.Message-container {
+  background-color: none;
+  width: 600px;
+  height: 850px;
+  color: black;
+  text-align: left;
+  display: inline-block;
+  float: right;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-top: 70px;
 }

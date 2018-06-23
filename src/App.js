@@ -36,12 +36,13 @@ isActiveRoom = (room) => { // new method to handle which room is active when use
           <main>
             <RoomList firebase={firebase} activeRoom={this.state.activeRoom} isActiveRoom={ (room) => this.isActiveRoom(room)}/>
           </main>
-          <main>
-            <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
-          </main>
         </div>
         </nav>
         </header>
+        <main className="Message-container">
+        <h2>Messages</h2>
+          <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
+        </main>
       </div>
     );
   }
