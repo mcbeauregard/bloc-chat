@@ -7,6 +7,7 @@ class MessageList extends Component {
       messages: []
     }
     this.messagesRef = this.props.firebase.database().ref('Messages');
+    console.log('message displaying');
   }
 
   componentDidMount() {
@@ -27,7 +28,7 @@ class MessageList extends Component {
           {this.state.messages.map((message, index) => {
             if (this.props.activeRoom && (message.roomId.key === this.props.activeRoom.key)) {
           return
-              console.log('message functioning');
+              console.log('message returning');
             <li key={index}>
               <span className="userinfo">{message.username}</span>
               <span className="content">{message.content}</span>
