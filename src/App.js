@@ -34,7 +34,7 @@ isActiveRoom = (room) => { // new method to handle which room is active when use
         <div className="topbar">
           <span to='/RoomList'>Chat Rooms</span>
           <main>
-            <RoomList firebase={firebase} activeRoom={this.state.activeRoom} isActiveRoom={this.isActiveRoom}/>
+            <RoomList firebase={firebase} activeRoom={this.state.activeRoom} isActiveRoom={ (room) => this.isActiveRoom(room)}/>
           </main>
           <main>
             <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
