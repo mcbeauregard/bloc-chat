@@ -27,6 +27,7 @@ class MessageList extends Component {
           {this.state.messages.map((message, index) => {
             if (this.props.activeRoom && (message.roomId.key === this.props.activeRoom.key)) {
           return
+              console.log('message functioning');
             <li key={index}>
               <span className="userinfo">{message.username}</span>
               <span className="content">{message.content}</span>

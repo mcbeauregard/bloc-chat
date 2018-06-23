@@ -13,7 +13,7 @@ componentDidMount() {
   this.roomsRef.on('child_added', snapshot => {
     const room = snapshot.val();
     room.key = snapshot.key;
-    console.log('rooms mounting');
+    console.log('room list mounting');
     this.setState({ rooms: this.state.rooms.concat( room ) })
   });
 }
