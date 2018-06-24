@@ -19,12 +19,20 @@ class MessageList extends Component {
   });
 }
 
-  render() {
+handleRoomActive(message){
+  if(this.state.isActiveRoom && this.state.room.key === message.key) {
+  this.message.key;
+} else {
+  null;
+}
+}
+
+render() {
     return (
       <section id="message-container">
-          <ul className="message-item">
-          {this.state.messages.map(message =>
-            <li key={message.key}>
+          <ul className="message">
+          {this.state.messages.map( (message, index)  =>
+            <li key={message.key} onClick={() => this.handleRoomActive(message, index)}>
               <span className="userinfo">{message.username}</span>
               <span className="content">{message.content}</span>
               <span className="content">{message.sentAt}</span>
