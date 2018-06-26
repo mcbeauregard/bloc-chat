@@ -19,29 +19,38 @@ class MessageList extends Component {
   });
 }
 
-handleRoomActive(message){
-  if(this.state.isActiveRoom && this.state.room.key === message.key) {
-  this.message.key;
-} else {
-  null;
+      return <li key={message.key}>{message.content}</li>
+    }
+    return null;
+  })
+);
+
+return(
+  <div>
+    <div>{messageBar}</div>
+    <ul>{messageList}</ul>
+  </div>
+);
 }
 }
 
 render() {
     return (
-      <section id="message-container">
-          <ul className="message">
-          {this.state.messages.map( (message, index)  =>
-            <li key={message.key} onClick={() => this.handleRoomActive(message, index)}>
+    <div className="message-container">
+          {this.state.messages.map((message) => {
+            if (message.roomId === activeRoom) {
+          return  <li key={message.key} className="message-item">
               <span className="userinfo">{message.username}</span>
               <span className="content">{message.content}</span>
               <span className="content">{message.sentAt}</span>
             </li>
-         )}
-          </ul>
-      </section>
-    );
+          } else {
+            null;
+          })
+        }
+        </div>
+      );
+    }
   }
-}
 
 export default MessageList;
