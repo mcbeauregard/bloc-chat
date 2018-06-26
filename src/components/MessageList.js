@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './MessageList.css';
 
 class MessageList extends Component {
   constructor(props){
@@ -22,20 +23,17 @@ class MessageList extends Component {
 render() {
   return (
     <section className="Message">
-        {this.state.messages.map(message => {
-        if (this.props.activeRoom && (message.roomId === this.props.activeRoom.key)) {
-          return <li key={message.key}>
+        <ul className="message-item">
+        {this.state.messages.map(message =>
+          <li key={message.key} className={this.props.activeRoom && this.props.activeRoom.key ===  message.key ? 'message-item' : null }>
             <span className="userinfo">{message.username}</span>
             <span className="content">{message.content}</span>
-            <span className="content">{message.sentAt}</span>
-          </li>
-       } else {
-         return null
+            <span className="time">{message.sentAt}</span>
+          </li>)
        }
-     })
-   }
+        </ul>
     </section>
-  );
+  )
 }
 }
 

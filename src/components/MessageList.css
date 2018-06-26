@@ -1,0 +1,4 @@
+/* When active-room selected, show messages */
+td.message-item .userinfo .content .time {
+  display: block;
+}
