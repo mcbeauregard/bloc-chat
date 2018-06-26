@@ -19,27 +19,21 @@ class MessageList extends Component {
   });
 }
 
-handleRoomActive(message){
-  if(this.props.isActiveRoom === message.roomId) {
-  return
-  {this.state.messages.map( (message)  =>
-      <li key={message.key}>
-        <span className="userinfo">{message.username}</span>
-        <span className="content">{message.content}</span>
-        <span className="content">{message.sentAt}</span>
-      </li>
-     )}
-} else {
-  null;
-}
-}
-
 render() {
-    return (
-      <section id="message-container" onClick={() => this.handleRoomActive(this.state.message)}>
-      </section>
-    );
-  }
+  return (
+    <section id="message-container">
+        <ul className="message-item">
+        {this.state.messages.map(message =>
+          <li key={message.key}>
+            <span className="userinfo">{message.username}</span>
+            <span className="content">{message.content}</span>
+            <span className="content">{message.sentAt}</span>
+          </li>
+       )}
+        </ul>
+    </section>
+  );
+}
 }
 
 export default MessageList;
