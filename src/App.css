@@ -28,8 +28,9 @@
 
 .Message-container {
   background-color: none;
-  width: 600px;
+  width: 500px;
   height: 850px;
+  margin-top: 50px;
   color: black;
   text-align: left;
   display: inline-block;
