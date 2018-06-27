@@ -21,20 +21,26 @@ class MessageList extends Component {
 }
 
 render() {
-  return (
-    <section className="Message">
-        <ul className="message-item">
-        {this.state.messages.map(message =>
-          <li key={message.key} className={this.props.activeRoom && this.props.activeRoom.key ===  message.key ? 'message-item' : null }>
+
+  const messageItem = (
+    this.state.messages.filter((message) => {
+    if (this.props.activeRoom && (message.roomId === this.props.activeRoom.key)) {
+      return
+          <li key={message.key}>
             <span className="userinfo">{message.username}</span>
             <span className="content">{message.content}</span>
             <span className="time">{message.sentAt}</span>
-          </li>)
-       }
-        </ul>
-    </section>
-  )
-}
+          </li>
+       } return null;
+     })
+     );
+
+    return (
+      <section className="Message">
+        <div>{messageItem}</div>
+      </section>
+    );
+  }
 }
 
 export default MessageList;
