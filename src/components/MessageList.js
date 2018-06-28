@@ -22,22 +22,27 @@ class MessageList extends Component {
 
 render() {
 
-  const messageItem = (
+  const messageItems = (
     this.state.messages.filter((message) => {
+      console.log(message);
+      console.log(this.props.activeRoom);
     if (this.props.activeRoom && (message.roomId === this.props.activeRoom.key)) {
-      return
+      return (
           <li key={message.key}>
             <span className="userinfo">{message.username}</span>
             <span className="content">{message.content}</span>
             <span className="time">{message.sentAt}</span>
-          </li>
-       } return null;
+          </li>)
+       } else {
+         return false;
+       }
      })
      );
+console.log(messageItems);
 
     return (
       <section className="Message">
-        <div>{messageItem}</div>
+        <div>{messageItems}</div>
       </section>
     );
   }
