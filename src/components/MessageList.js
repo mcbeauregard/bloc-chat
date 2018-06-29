@@ -6,6 +6,7 @@ class MessageList extends Component {
     super(props);
     this.state = { messages: []}
     this.messagesRef = this.props.firebase.database().ref('Messages');
+    this.timeStamp = this.props.firebase.database.ServerValue.TIMESTAMP;
     console.log('message displaying');
   }
 
