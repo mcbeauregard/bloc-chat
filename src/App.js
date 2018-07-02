@@ -3,6 +3,7 @@ import * as firebase from 'firebase';
 import './App.css';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
+import User from './components/User';
 
   // Initialize Firebase
   var config = {
@@ -25,6 +26,10 @@ isActiveRoom = (room) => { // new method to handle which room is active when use
     this.setState({ activeRoom: room}); // Updates room with active room name.
   }
 
+setUser = (user) => {
+  this.setState({ activeUser: user });
+}
+
   render() {
     return (
       <div className="App">
@@ -42,11 +47,13 @@ isActiveRoom = (room) => { // new method to handle which room is active when use
         <main className="Message-container">
         <h2>Messages</h2>
           <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
+        <div className="User-header">
+          <User firebase={firebase} activeUser={this.state.activeUser} setUser={this.state.setUser} />
+        </div>
         </main>
       </div>
     );
   }
 }
-
 
 export default App;
