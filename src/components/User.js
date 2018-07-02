@@ -22,7 +22,7 @@ componentDidMount() {
       <div className="login-menu">
         <p className="user-display-name">{this.props.activeUser ? "Display name: " + this.props.activeUser.displayName : "Guest"}</p>
         <button className="signInButton" onClick={() => this.signIn()}>Sign in</button>
-        <button className="signOutButton" onClick={() => this.signOut()}>Sign out</button>
+        <button className="signOutButton" onClick={() => this.signOut()}>Sign out</button> 
       </div>
     );
   }
