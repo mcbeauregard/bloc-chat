@@ -8,17 +8,23 @@ signIn = () => {
 }
 
 signOut = () => {
-  this.props.firebase.auth().signOutWithPopup();
+  this.props.firebase.auth().signOut();
 }
 
-render() {
-  return (
-    <section className="login-menu">
-      <button className="sign-in-button" onClick={this.state.signIn}>'Sign in'</button>
-      <button className="sign-out-button" onClick={this.state.signOut}>'Sign out'</button>
-    </section>
-  );
+componentDidMount() {
+  this.props.firebase.auth().onAuthStateChanged( user => {
+    this.props.setUser(user);
+  });
 }
+
+  render() {
+    return (
+      <section className="login-menu">
+        <button className="sign-in-button" onClick={() => this.signIn()}>Sign in</button>
+        <button className="sign-out-button" onClick={() => this.signOut()}>Sign out</button>
+      </section>
+    );
+  }
 }
 
 export default User;
