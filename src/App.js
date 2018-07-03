@@ -36,7 +36,7 @@ setUser = (user) => {
         <header className="App-header">
           <h1 className="App-title">Bloc Chat</h1>
         <nav>
-        <div className="Room-container">
+        <div className="topbar">
           <span to='/RoomList'>Chat Rooms</span>
           <main>
             <RoomList firebase={firebase} activeRoom={this.state.activeRoom} isActiveRoom={ (room) => this.isActiveRoom(room)}/>
