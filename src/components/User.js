@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 class User extends Component {
 
-signIn = (firebase) => {
+signIn = () => {
   const provider = new this.props.firebase.auth.GoogleAuthProvider();
   this.props.firebase.auth().signInWithPopup(provider);
 }
 
-signOut = (firebase) => {
+signOut = () => {
   this.props.firebase.auth().signOut();
 }
 
