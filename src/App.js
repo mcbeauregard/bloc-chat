@@ -48,7 +48,7 @@ setUser = (user) => {
         <h2>Messages</h2>
           <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
         <div className="User-header">
-          <User firebase={firebase} activeUser={this.state.activeUser} setUser={this.state.setUser} />
+          <User firebase={firebase} activeUser={this.state.activeUser} setUser={this.setUser} />
         </div>
         </main>
       </div>
