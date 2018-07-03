@@ -34,7 +34,7 @@ render() {
       <section className="rooms">
          {this.state.rooms.map( (room,index) =>
           <li>
-            <button className="roomName" key={index} onClick={ () => this.props.isActiveRoom(room)}>{room.name}</button>
+            <button className="roomName" onClick={ () => this.props.isActiveRoom(room)}>{room.name}</button>
           </li>)}
           <form id="createRoomForm" onSubmit={ (e) => { e.preventDefault(); this.handleSubmit(this.state.newRoom) } }>
             <input type="text" value={ this.state.newRoom } onChange={ this.handleChangeRoomName} placeholder="Create a new room" />
