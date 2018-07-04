@@ -14,7 +14,6 @@ class MessageList extends Component {
     this.messagesRef.on('child_added', snapshot => {
       const message = snapshot.val();
       message.key = snapshot.key;
-      message.username =  this.props.activeUser.displayName;
       this.setState({ messages: this.state.messages.concat(message) })
     });
   }
@@ -23,7 +22,7 @@ handleSubmitMessage = (e) => { // new method to handle when a new message item i
   this.messagesRef.push({ // method used in firebase to add an item to a location.
       content: this.state.newMessage,
       roomId: this.props.activeRoom.key,
-      username: this.props.activeUser.displayName,
+      username: this.props.activeUser ? this.props.activeUser.displayName : "Guest",
       sentAt: this.props.firebase.database.ServerValue.TIMESTAMP
       });
     this.setState({newMessage:""}); // Updates message list with new message item, if empty leaves field blank.
