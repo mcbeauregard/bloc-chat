@@ -19,7 +19,7 @@ import User from './components/User';
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = { activeRoom: null };
+    this.state = { activeRoom: null, activeUser: null };
   }
 
 isActiveRoom = (room) => { // new method to handle which room is active when user clicks on room. Accepts room data.
