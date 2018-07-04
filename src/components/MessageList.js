@@ -19,6 +19,17 @@ class MessageList extends Component {
   });
 }
 
+handleNewMessage = (e) => {
+  this.setState({ newMessage: e.target.value})
+}
+
+handleSubmitMessage = (newMessage) => { // new method to handle when a new message item is added when user clicks button. Accepts event data.
+  this.messagesRef.push({ // method used in firebase to add an item to a location.
+    message: newMessage
+  });
+  this.setState({ newMessage: ""}); // Updates message list with new message item, if empty leaves field blank.
+}
+
 render() {
 
   const messageItems = (
@@ -42,6 +53,10 @@ console.log(messageItems);
     return (
       <section className="Message">
         <div>{messageItems}</div>
+        <form id="createMessageForm" onSubmit={ (e) => { e.preventDefault(); this.handleSubmitMessage(this.state.newMessage) } }>
+          <input type="text" value={ this.state.newMessage } onChange={ this.handleNewMessage} placeholder="Type a new message" />
+          <button>Submit</button>
+        </form>
       </section>
     );
   }
