@@ -22,12 +22,12 @@ class MessageList extends Component {
 render() {
 
   const messageItems = (
-    this.state.messages.map((message) => {
+    this.state.messages.map((message, index) => {
       console.log('Active Room', this.props.activeRoom);
       console.log('Messages', this.state.Messages);
     if (this.props.activeRoom && (message.roomId === this.props.activeRoom.key)) {
       return (
-          <li key={message.key}>
+          <li key={index}>
             <span className="userinfo">{message.username}</span>
             <span className="content">{message.content}</span>
             <span className="time">{message.sentAt}</span>
