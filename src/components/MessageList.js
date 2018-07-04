@@ -22,7 +22,7 @@ handleSubmitMessage = (e) => { // new method to handle when a new message item i
   this.messagesRef.push({ // method used in firebase to add an item to a location.
       content: this.state.newMessage,
       roomId: this.props.activeRoom.key,
-      username: this.props.username,
+      username: this.state.username,
       sentAt: this.props.firebase.database.ServerValue.TIMESTAMP
       });
     this.setState({newMessage:""}); // Updates message list with new message item, if empty leaves field blank.
