@@ -30,7 +30,7 @@ handleSubmit = (newRoom) => { // new method to handle when a new room item is ad
 }
 
 render() {
-  return (
+  return (    
       <section className="rooms">
          {this.state.rooms.map( (room,index) =>
           <li key={index}>
