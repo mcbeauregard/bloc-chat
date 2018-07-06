@@ -50,6 +50,7 @@ handleNewMessage = (e) => {
 
     return (
         <section className="Message">
+        <h3>{this.props.activeRoom  ? this.props.activeRoom.name : null}</h3>
           <div>{messageItems}</div>
           <form id="createMessageForm" onSubmit={ (e) => { e.preventDefault(); this.handleSubmitMessage(e)} }>
              <input type="text" value={ this.state.newMessage} onChange={this.handleNewMessage} placeholder="Type a new message" />
