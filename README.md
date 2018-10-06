@@ -2,7 +2,7 @@ A replica of Slack. Built with React and Firebase’s database and authenticatio
 
 Features include, create new chat room and new message.
 
-<img src='./src/components/bloc-chat.jpg' alt='online chat room'/>
+<img src='./src/components/chat-room.png' alt='online chat room'/>
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
